@@ -7,63 +7,76 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   document.querySelector("#button").addEventListener("click", function() {
-    generateName();
+    generateRandom();
   });
+
+  generateOwn();
 };
 
-const generateName = () => {
-  let pronoun = ["the", "your", "", "our"];
-  let adj = [
-    "old",
-    "big",
-    "fat",
-    "microscopic",
-    "elegant",
-    "happy",
-    "lazy",
-    "colossal"
-  ];
-  let noun = [
-    "cat",
-    "grandpa",
-    "titan",
-    "car",
-    "computer",
-    "cockroach",
-    "duck",
-    "rat"
-  ];
-  let domain = [".com", ".es", ".us", ".net", ".org"];
+let pronoun = ["", "the", , "your", "our"];
+let adj = [
+  "",
+  "old",
+  "big",
+  "fat",
+  "microscopic",
+  "elegant",
+  "happy",
+  "lazy",
+  "colossal"
+];
+let noun = [
+  "",
+  "cat",
+  "grandpa",
+  "titan",
+  "car",
+  "computer",
+  "cockroach",
+  "duck",
+  "rat"
+];
+let domain = ["", ".com", ".es", ".us", ".net", ".org"];
 
-  console.log("Pronouns:");
-  for (let i = 0; i < pronoun.length; i++) {
-    console.log(pronoun[i]);
+const openSelect = "<select>";
+const closingSelect = "</select>";
+
+const generateOwn = () => {
+  let nameOptions = openSelect;
+
+  for (let i in pronoun) {
+    nameOptions += "<option>" + pronoun[i] + "</option>";
   }
+  nameOptions += closingSelect + openSelect;
 
-  console.log("Adjectives:");
-  for (let i = 0; i < adj.length; i++) {
-    console.log(adj[i]);
+  for (let x in adj) {
+    nameOptions += "<option>" + adj[x] + "</option>";
   }
+  nameOptions += closingSelect + openSelect;
 
-  console.log("Nouns:");
-  for (let i = 0; i < noun.length; i++) {
-    console.log(noun[i]);
+  for (let y in noun) {
+    nameOptions += "<option>" + noun[y] + "</option>";
   }
+  nameOptions += closingSelect + openSelect;
 
-  console.log("Domains:");
-  for (let i = 0; i < domain.length; i++) {
-    console.log(domain[i]);
+  for (let z in domain) {
+    nameOptions += "<option>" + domain[z] + "</option>";
   }
+  nameOptions += closingSelect;
 
+  document.querySelector("#ownName").innerHTML = nameOptions;
+};
+
+const generateRandom = () => {
   let pronounIndex = Math.floor(Math.random() * pronoun.length);
-  let adjIndex = Math.floor(Math.random() * adj.length);
-  let nounIndex = Math.floor(Math.random() * noun.length);
-  let domainIndex = Math.floor(Math.random() * domain.length);
+  let adjIndex = Math.floor(Math.random() * (adj.length - 1)) + 1;
+  let nounIndex = Math.floor(Math.random() * (noun.length - 1)) + 1;
+  let domainIndex = Math.floor(Math.random() * (domain.length - 1)) + 1;
 
   let name =
     pronoun[pronounIndex] +
     adj[adjIndex] +
     noun[nounIndex] +
     domain[domainIndex];
-  document.querySelector("#domainName").innerHTML = name;
+  document.querySelector("#randomName").innerHTML = name;
 };

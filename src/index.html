@@ -11,18 +11,30 @@
       crossorigin="anonymous"
     />
     <link rel="shortcut icon" href="./4geeks.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="bg-secondary-subtle">
     <div class="container-fluid text-center">
       <h1 class="mt-5">Domain Name Generator</h1>
       <h5 class="mt-5">
-        Can't find a name for your Domain?<br />
-        Don't worry, here are some cool ones for you to choose :)
+        You can choose you own name here:
       </h5>
-      <h4 class="mt-4" id="domainName"></h4>
+      <div class="mt-4" id="ownName"></div>
+      <h5 class="mt-5">
+        Or you can let us create a random name for you ;)
+      </h5>
+      <h4 class="mt-4" id="randomName"></h4>
       <div>
-        <button id="button" class="btn btn-lg btn-secondary mt-4">
-          Generate your Domain Name
+        <!-- <button id="button" class="btn btn-lg btn-secondary mt-4">
+          Get a random Domain Name
+        </button> -->
+        <button id="button" class="glow-on-hover" type="button">
+          Get a random Domain Name
         </button>
       </div>
     </div>
